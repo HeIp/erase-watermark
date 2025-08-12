@@ -1,0 +1,12 @@
+# Dependency directories
+node_modules/
+
+# Test assets and processing results.
+# This will ignore all files within these directories.
+images/*
+results/*
+
+# You can keep these directories in your repository by creating an empty
+# .gitkeep file in each and uncommenting the lines below.
+# !images/.gitkeep
+# !results/.gitkeep

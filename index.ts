@@ -41,14 +41,9 @@ export default class DeWatermark {
     }
 
     private base64ToUint8Array(base64: string): Uint8Array {
-        const binaryString = atob(base64);
-        const len = binaryString.length;
-        const bytes = new Uint8Array(len);
-        for (let i = 0; i < len; i++) {
-            bytes[i] = binaryString.charCodeAt(i);
-        }
-
-        return bytes;
+        // Use Buffer.from with 'base64url' to handle URL-safe base64 strings,
+        // which are common for JWT keys. This is more robust than atob().
+        return Buffer.from(base64, "base64url");
     }
 
     private async createJWT(keyString: Uint8Array, er: boolean): Promise<string> {
